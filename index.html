@@ -13,26 +13,32 @@
     </header>
     <section class="columns">
         <div class="column is-three-fifths has-background-danger is-offset-one-fifth">
-            <p >Aqui irán las instrucciones</p>        
+            <p class="block">Aqui irán las instrucciones</p>        
             <div class="field">
                 <div class="control">
-                    <div class="select">
+                    <div class="select block">
                         <select>
-                            <option>Nombre</option>
-                            <option>Id</option>
+                            <option id = "busquedaId">Id</option>
+                            <option id = "busquedaNombre">Nombre</option>
                         </select>
-                        <input class="input is-info" type="text" placeholder="Info input">                        
-                        <input class="input is-info" type="number" placeholder="Ingrese un número">
                     </div>                    
-                    <button id= "btn">Atrápalo YA!</button>
-                </div>
+                    <button id= "btn" class="button is-rounded">Atrápalo YA!</button>
+                    <input id="boxBusquedaNombre" class="input is-info is-small" type="text" placeholder="Escriba el Id del Pokemón">                    
+                </div>               
             </div>
         </div>
     </section>
-    <section class="section columns">
-        <div class="column is-three-fifths has-background-danger is-offset-one-fifth columns">
-            <div id = "sprite" class="column has-background-link "></div>
-            <div id ="chartContainer" class="column has-background-success" style="height: 300px; width: 100%;"></div>
+    <section class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth has-background-danger">
+            <div id="tituloPokemon" class="column ">
+                
+            </div>
+            <div class="has-background-danger">
+                <div id = "sprite" class="has-background-link is-flex-direction-column">
+                    
+                </div>
+                <div id ="chartContainer" class="has-background-success mt-4" style="width: 100%; height: 20rem;"></div>
+            </div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

@@ -7702,6 +7702,18 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+@font-face {
+  font-family: "PokemonSolid";
+  src: url("../fonts/Pokemon-Solid.woff") format("woff"); }
+
 img {
   width: 10rem;
   height: 10rem; }
+
+.infopokemon {
+  display: inline-block; }
+
+h2 {
+  font-family: "PokemonSolid";
+  font-size: 2rem;
+  color: blue; }

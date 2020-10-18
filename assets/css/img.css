@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "PokemonSolid";
+  src: url("../fonts/Pokemon-Solid.woff") format("woff"); }
+
 img {
   width: 10rem;
   height: 10rem; }
+
+.infopokemon {
+  display: inline-block; }
+
+h2 {
+  font-family: "PokemonSolid";
+  font-size: 2rem;
+  color: blue; }
