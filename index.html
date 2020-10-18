@@ -13,18 +13,30 @@
     </header>
     <section class="columns">
         <div class="column is-three-fifths has-background-danger is-offset-one-fifth">
-            <p >Aqui irán las instrucciones</p>
-            <input type="number">
-            <button id= "btn">Atrápalo YA!</button>
+            <p >Aqui irán las instrucciones</p>        
+            <div class="field">
+                <div class="control">
+                    <div class="select">
+                        <select>
+                            <option>Nombre</option>
+                            <option>Id</option>
+                        </select>
+                        <input class="input is-info" type="text" placeholder="Info input">                        
+                        <input class="input is-info" type="number" placeholder="Ingrese un número">
+                    </div>                    
+                    <button id= "btn">Atrápalo YA!</button>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="columns">
+    <section class="section columns">
         <div class="column is-three-fifths has-background-danger is-offset-one-fifth columns">
-            <div id = "sprite" class="column has-background-link ">hola</div>
-            <div id ="grafico" class="column has-background-success ">chao</div>
+            <div id = "sprite" class="column has-background-link "></div>
+            <div id ="chartContainer" class="column has-background-success" style="height: 300px; width: 100%;"></div>
         </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 </html>
