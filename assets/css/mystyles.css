@@ -7716,4 +7716,66 @@ img {
 h2 {
   font-family: "PokemonSolid";
   font-size: 2rem;
-  color: blue; }
+  color: yellow; }
+
+.fire {
+  background-color: #e0281a; }
+
+.water {
+  background-color: royalblue; }
+
+.electric {
+  background-color: gold;
+  color: black; }
+
+.normal {
+  background-color: pink; }
+
+.fighting {
+  background-color: orangered; }
+
+.flying {
+  background-color: skyblue; }
+
+.poison {
+  background-color: darkolivegreen; }
+
+.ground {
+  background-color: brown; }
+
+.rock {
+  background-color: gray; }
+
+.bug {
+  background-color: green; }
+
+.ghost {
+  background-color: purple; }
+
+.steel {
+  background-color: silver; }
+
+.grass {
+  background-color: lawngreen; }
+
+.psychic {
+  background-color: violet; }
+
+.ice {
+  background-color: cornflowerblue; }
+
+.dragon {
+  background-color: peru; }
+
+.dark {
+  background-color: #070707;
+  color: gray; }
+
+.fairy {
+  background-color: plum; }
+
+.unknown {
+  background-color: white; }
+
+.shadow {
+  background-color: darkgrey; }

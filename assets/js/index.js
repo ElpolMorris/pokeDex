@@ -12,7 +12,7 @@ let tipoPokemon = () =>{
         success: function(tipo){
             console.log(tipo)
             tipo.results.forEach(function(e){
-                arrayTipo.push({y: e.name})
+                arrayTipo.push(e.name)
             })
         }
     })
@@ -23,13 +23,11 @@ let pokemon = (eleccionUsuario) =>{
         type: "GET",
         url: `https://pokeapi.co/api/v2/pokemon/${eleccionUsuario}`,
         datatype: "json",
-        success: function(datosPokemon){            
-            $("#sprite").empty()
-            //$("#sprite").append(`<img src=${datosPokemon.sprites.front_default}>`)
-            $("#sprite").append(
-              `
-                <article class="message is-success">
-                    <div class="message-header">
+        success: function(datosPokemon){                      
+            $("#sprite").empty()            
+            $("#sprite").append(`
+                <article class="message">
+                    <div  class="message-header ${datosPokemon.types[0].type.name}">
                         <p>${datosPokemon.name}</p>
                         <button class="delete" aria-label="delete"></button>
                     </div>
