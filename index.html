@@ -15,16 +15,20 @@
         <div class="column is-three-fifths has-background-danger is-offset-one-fifth">
             <p class="block">Aqui irán las instrucciones</p>        
             <div class="field">
-                <div class="control">
-                    <div class="select block">
+                <div class="control is-flex is-flex-direction-row is-justify-content-space-between">
+                    <div class="select">
                         <select>
                             <option id = "busquedaId">Id</option>
                             <option id = "busquedaNombre">Nombre</option>
                         </select>
+                    </div>
+                    <div>
+                        <input id="boxBusquedaNombre" class="input is-info" type="text" placeholder="Escriba el Id del Pokemón">                    
                     </div>                    
-                    <button id= "btn" class="button is-rounded">Atrápalo YA!</button>
-                    <input id="boxBusquedaNombre" class="input is-info is-small" type="text" placeholder="Escriba el Id del Pokemón">                    
-                </div>               
+                    <div class="is-flex is-justify-content-center">
+                        <button id= "btn" class="button is-rounded">Atrápalo YA!</button>
+                    </div>               
+                </div>
             </div>
         </div>
     </section>
@@ -34,8 +38,12 @@
                 
             </div>
             <div class="has-background-danger">
-                <div id = "sprite" class="has-background-link is-flex-direction-column">
+                <div id = "sprite" class="has-background-link">
                     
+                </div>
+                <div class="has-background-danger pt-2 is-flex is-justify-content-space-between">
+                    <button class="button">Anterior Pokemón</button>
+                    <button class="button">Siguiente Pokemon</button>
                 </div>
                 <div id ="chartContainer" class="has-background-success mt-4" style="width: 100%; height: 20rem;"></div>
             </div>

@@ -1,29 +1,36 @@
 $(document).ready(function(){
-    pokemon(25) 
-    tipoPokemon()
-    console.log(arrayTipo)   
+    pokemon(25)
+     
 })
-let arrayTipo = []
-let tipoPokemon = () =>{
-    $.ajax({
-        type: "GET",
-        url: `https://pokeapi.co/api/v2/type`,
-        datatype: "json",
-        success: function(tipo){
-            console.log(tipo)
-            tipo.results.forEach(function(e){
-                arrayTipo.push(e.name)
-            })
-        }
-    })
-}
+
 // función llamada pokemon
 let pokemon = (eleccionUsuario) =>{          
     $.ajax({
         type: "GET",
         url: `https://pokeapi.co/api/v2/pokemon/${eleccionUsuario}`,
         datatype: "json",
-        success: function(datosPokemon){                      
+        success: function(datosPokemon){
+            //obtener habilidades pokemon
+            let habilidadPokemon = [] //arreglo que almacenará habilidades
+            //recorrer arreglo api según propiedad abilities
+            datosPokemon.abilities.forEach((habilidad)=> {
+                habilidadPokemon.push(habilidad.ability.name)//obtener dato y agregarlo a arreglo vacio
+            })
+            // mapear arreglo habilidad pokemon agregando esos datos dentro de una etiqueta Li
+            let habilidadPokemonLi = habilidadPokemon.map((habilidad, index, array)=>{
+                return `<li> ${habilidad}</li>`
+            })
+            // arreglo con etiqueta de inicio y cierre de ul
+            let ul = ["</ul>","<ul>"]
+            // unir arreglos habilidad pokemon li y ul
+            let habilidadPokemonHtml = ul.concat(habilidadPokemonLi) 
+            let borrar = habilidadPokemonHtml.shift() //ajustes de posición ul
+            habilidadPokemonHtml.push(borrar)//ajustes de posición ul
+            //variable para facilitar la inserción html
+            let habilidadPokemonHtmlJoin = habilidadPokemonHtml.join(" ")
+            console.log(habilidadPokemonHtmlJoin)
+           
+
             $("#sprite").empty()            
             $("#sprite").append(`
                 <article class="message">
@@ -31,13 +38,22 @@ let pokemon = (eleccionUsuario) =>{
                         <p>${datosPokemon.name}</p>
                         <button class="delete" aria-label="delete"></button>
                     </div>
-                    <div class="message-body">
-                        <img src=${datosPokemon.sprites.front_default}>                    
-                        <ul class= infopokemon>
-                            <li>Id: #${datosPokemon.id}</li>
-                            <li>Tipo: ${datosPokemon.types[0].type.name}</li>
-                            <li>Peso: ${datosPokemon.weight / 10} kg</li>
-                        </ul>
+                    <div class="message-body is-large is-flex is-flex-direction-row">
+                        <img src=${datosPokemon.sprites.front_default}>                          
+                        <div class = "${datosPokemon.types[0].type.name} column is-flex is-flex-direction-row is-justify-content-space-between">
+                            <div>                            
+                                <ul class= is-medium>
+                                    <li class= is-large>Id: #${datosPokemon.id}</li>
+                                    <li>Tipo: ${datosPokemon.types[0].type.name}</li>
+                                    <li>Peso: ${datosPokemon.weight / 10} kg</li>
+                                    <li>Altura: ${datosPokemon.height / 10} m </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3>Habilidades: </h3>                            
+                                ${habilidadPokemonHtmlJoin}
+                            </div>                    
+                        </div>
                     </div>
                 </article>`
             );
