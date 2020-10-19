@@ -10,6 +10,7 @@ let pokemon = (eleccionUsuario) =>{
         url: `https://pokeapi.co/api/v2/pokemon/${eleccionUsuario}`,
         datatype: "json",
         success: function(datosPokemon){
+            console.log(datosPokemon.id)
             //obtener habilidades pokemon
             let habilidadPokemon = [] //arreglo que almacenará habilidades
             //recorrer arreglo api según propiedad abilities
@@ -27,9 +28,7 @@ let pokemon = (eleccionUsuario) =>{
             let borrar = habilidadPokemonHtml.shift() //ajustes de posición ul
             habilidadPokemonHtml.push(borrar)//ajustes de posición ul
             //variable para facilitar la inserción html
-            let habilidadPokemonHtmlJoin = habilidadPokemonHtml.join(" ")
-            console.log(habilidadPokemonHtmlJoin)
-           
+            let habilidadPokemonHtmlJoin = habilidadPokemonHtml.join(" ")           
 
             $("#sprite").empty()            
             $("#sprite").append(`
@@ -88,10 +87,10 @@ let pokemon = (eleccionUsuario) =>{
             },            
         })             
     }
-// Botón para iniciar llamada pokemon    
+    // Botón para iniciar llamada pokemon    
 let inicioBusqueda = ()=>{
+        let endPointUser = $("#boxBusquedaNombre").val()
     // variable que guarda los datos ingresados por el usuario
-    let endPointUser = $("#boxBusquedaNombre").val()
     // condicional: si se eligió buscar por ID
     if (criterioBusqueda == true){
         let patronBusquedaNumero = /^[\d]+$/gim //busqueda por número      
