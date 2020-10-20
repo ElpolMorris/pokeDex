@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokedex</title>
     <link rel="stylesheet" href="assets/css/mystyles.css">
 </head>
 <body>
-    <nav></nav>
-    <header>
-        <h1>Súper PokeDex</h1>
+    <header class="columns">
+        <div class="column is-three-fifths has-background-danger is-offset-one-fifth is-flex is-justify-content-center ">
+            <h1 class="tituloDoc">Súper PokeDex</h1>
+        </div>
     </header>
     <section class="columns">
         <div class="column is-three-fifths has-background-danger is-offset-one-fifth">
-            <p class="block">Aqui irán las instrucciones</p>        
+            <p class="block has-text-white">Elige una opción de la lista para buscar tu pokemon </p>        
             <div class="field">
                 <div class="control is-flex is-flex-direction-row is-justify-content-space-between">
                     <div class="select">
-                        <select>
-                            <option id = "busquedaId">Id</option>
-                            <option id = "busquedaNombre">Nombre</option>
+                        <select name= "select">
+                            <option value ="" selected ="selected" disabled>Elige una opción</option>
+                            <option id = "busquedaId" value = "Id" >Id</option>
+                            <option id = "busquedaNombre" value = "Nombre">Nombre</option>
                         </select>
                     </div>
                     <div>
                         <input id="boxBusquedaNombre" class="input is-info" type="text" placeholder="Escriba el Id del Pokemón">                    
                     </div>                    
                     <div class="is-flex is-justify-content-center">
-                        <button id= "btn" class="button is-rounded">Atrápalo YA!</button>
+                        <button id= "btn" class="button is-rounded is-success">Atrápalo YA!</button>
                     </div>               
                 </div>
             </div>
@@ -42,10 +44,11 @@
                     
                 </div>
                 <div class="has-background-danger pt-2 is-flex is-justify-content-space-between">
-                    <button id = "btnBack"class="button">Anterior Pokemón</button>
-                    <button id = "btnForw" class="button">Siguiente Pokemon</button>
+                    <button id = "btnBack"class="button is-dark is-outlined">Anterior Pokemón</button>
+                    <button id = "btnForw" class="button is-primary is-outlined">Siguiente Pokemon</button>
                 </div>
-                <div id ="chartContainer" class="has-background-success mt-4" style="width: 100%; height: 20rem;"></div>
+                <button id="btnTog" class="button mt-4 is-info is-large">Estadisticas de batalla</button>
+                <div id ="chartContainer" class="mt-4" style="width: 100%; height: 25rem;"></div>
             </div>
         </div>
     </section>

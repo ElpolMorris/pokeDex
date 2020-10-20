@@ -7723,60 +7723,78 @@ h2 {
   color: white; }
 
 .water {
-  background-color: royalblue; }
+  background-color: royalblue;
+  color: white; }
 
 .electric {
   background-color: gold;
   color: black; }
 
 .normal {
-  background-color: pink; }
+  background-color: pink;
+  color: black; }
 
 .fighting {
-  background-color: orangered; }
+  background-color: orangered;
+  color: white; }
 
 .flying {
-  background-color: skyblue; }
+  background-color: skyblue;
+  color: black; }
 
 .poison {
-  background-color: darkolivegreen; }
+  background-color: darkolivegreen;
+  color: white; }
 
 .ground {
-  background-color: brown; }
+  background-color: brown;
+  color: white; }
 
 .rock {
-  background-color: gray; }
+  background-color: gray;
+  color: black; }
 
 .bug {
-  background-color: green; }
+  background-color: green;
+  color: white; }
 
 .ghost {
-  background-color: purple; }
+  background-color: purple;
+  color: white; }
 
 .steel {
-  background-color: silver; }
+  background-color: silver;
+  color: black; }
 
 .grass {
-  background-color: lawngreen; }
+  background-color: #5fb42d;
+  color: white; }
 
 .psychic {
   background-color: violet; }
 
 .ice {
-  background-color: cornflowerblue; }
+  background-color: cornflowerblue;
+  color: white; }
 
 .dragon {
-  background-color: peru; }
+  background-color: peru;
+  color: white; }
 
 .dark {
   background-color: #070707;
   color: gray; }
 
 .fairy {
-  background-color: plum; }
+  background-color: plum;
+  color: white; }
 
 .unknown {
   background-color: white; }
 
 .shadow {
   background-color: darkgrey; }
+
+.tituloDoc {
+  font-family: "PokemonSolid";
+  font-size: 4rem; }

@@ -1,8 +1,10 @@
 $(document).ready(function(){
-    pokemon(25)
-     
+    pokemon(25)    
+    $("#boxBusquedaNombre").val("")
+    $("#chartContainer").css("display", "none")
+    console.log($("select").val())
 })
-
+let pokemonActual
 // función llamada pokemon
 let pokemon = (eleccionUsuario) =>{          
     $.ajax({
@@ -34,8 +36,7 @@ let pokemon = (eleccionUsuario) =>{
             $("#sprite").append(`
                 <article class="message">
                     <div  class="message-header ${datosPokemon.types[0].type.name}">
-                        <p>${datosPokemon.name}</p>
-                        <button class="delete" aria-label="delete"></button>
+                        <p>${datosPokemon.name}</p>                        
                     </div>
                     <div class="message-body is-large is-flex is-flex-direction-row">
                         <img src=${datosPokemon.sprites.front_default}>                          
@@ -84,7 +85,9 @@ let pokemon = (eleccionUsuario) =>{
             //renderizar grafico
             chart.render();
             $("#tituloPokemon").empty() //borra datos anteriores que hayan sido insertados            
-            },            
+            pokemonActual = datosPokemon.id
+            return pokemonActual    
+        },            
         })             
     }
     // Botón para iniciar llamada pokemon    
@@ -92,7 +95,7 @@ let inicioBusqueda = ()=>{
         let endPointUser = $("#boxBusquedaNombre").val()
     // variable que guarda los datos ingresados por el usuario
     // condicional: si se eligió buscar por ID
-    if (criterioBusqueda == true){
+    if (criterioBusqueda == 1){
         let patronBusquedaNumero = /^[\d]+$/gim //busqueda por número      
         if(patronBusquedaNumero.test(endPointUser) == false){
             alert('ingrese los valores nuevamente')
@@ -101,7 +104,7 @@ let inicioBusqueda = ()=>{
         } else {    
             pokemon(endPointUser) //si la validación es correcta, inicia funcion para traer datos API        
         }
-    } else{ // busqueda por nombre
+    } else if(criterioBusqueda == 0){ // busqueda por nombre
         let patronBusquedaNumero = /^[A-Za-z]+$/gim       
         if(patronBusquedaNumero.test(endPointUser) == false){
             alert('ingrese los valores nuevamente')
@@ -114,22 +117,36 @@ $("#btn").click(inicioBusqueda)
 
 // variable que determinará si la busqueda es por nombre o
 // por id según el usuario marque en la lista
-let criterioBusqueda = true
+let criterioBusqueda
 //click a opción lista
-$("#busquedaNombre").click(()=>{
-    criterioBusqueda = false
-    $("#boxBusquedaNombre").attr("placeholder", "Escriba el nombre del Pokemón")
+$("select").change(()=>{
+    let a = $("select").val()
+    console.log(a)
+    if(a == "Id"){
+        criterioBusqueda = 1        
+        $("#boxBusquedaNombre").attr("placeholder", "Escriba el Id del Pokemón")    
+    }else if(a == "Nombre") {
+        criterioBusqueda = 0        
+        $("#boxBusquedaNombre").attr("placeholder", "Escriba el Nombre del Pokemón")
+    }   
 })
-$("#busquedaId").click(()=>{
-    criterioBusqueda = true
-    $("#boxBusquedaNombre").attr("placeholder", "Escriba el Id del Pokemón")
+
+$("#btnForw").click((e)=>{
+    if(pokemonActual == 893){
+        pokemonActual = 1
+        pokemon(pokemonActual)
+    } else {
+        pokemon(pokemonActual+1)
+    }
 })
-    
-
-
-
-
-
-
-
-
+$("#btnBack").click((e)=>{
+    if(pokemonActual == 1){
+        pokemonActual = 893
+        pokemon(pokemonActual)
+    } else {
+        pokemon(pokemonActual-1)
+    }
+})
+$("#btnTog").click(()=>{
+    $("#chartContainer").slideToggle(1000)
+})
