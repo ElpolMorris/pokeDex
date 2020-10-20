@@ -24,13 +24,13 @@ let pokemon = (eleccionUsuario) =>{
                 return `<li> ${habilidad}</li>`
             })
             // arreglo con etiqueta de inicio y cierre de ul
-            let ul = ["</ul>","<ul>"]
+            //let ul = ["</ul>","<ul>"]
             // unir arreglos habilidad pokemon li y ul
-            let habilidadPokemonHtml = ul.concat(habilidadPokemonLi) 
-            let borrar = habilidadPokemonHtml.shift() //ajustes de posición ul
-            habilidadPokemonHtml.push(borrar)//ajustes de posición ul
+            //let habilidadPokemonHtml = ul.concat(habilidadPokemonLi) 
+            //let borrar = habilidadPokemonHtml.shift() //ajustes de posición ul
+            //habilidadPokemonHtml.push(borrar)//ajustes de posición ul
             //variable para facilitar la inserción html
-            let habilidadPokemonHtmlJoin = habilidadPokemonHtml.join(" ")           
+            let habilidadPokemonHtml = habilidadPokemonLi.join(" ")           
 
             $("#sprite").empty()            
             $("#sprite").append(`
@@ -50,8 +50,8 @@ let pokemon = (eleccionUsuario) =>{
                                 </ul>
                             </div>
                             <div>
-                                <h3>Habilidades: </h3>                            
-                                ${habilidadPokemonHtmlJoin}
+                                ${habilidadPokemonHtml ? "<h3>Habilidades: </h3>" : ""}
+                                <ul>${habilidadPokemonHtml}</ul>
                             </div>                    
                         </div>
                     </div>
